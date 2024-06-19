@@ -73,7 +73,7 @@ size = Vector2(10, 10)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yoryp")
-frame_progress = 0.494903
+frame_progress = 0.557054
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wnjrg")

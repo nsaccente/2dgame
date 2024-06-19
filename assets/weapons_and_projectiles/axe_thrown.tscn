@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 14.0
+"speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o3xa"]
@@ -73,7 +73,7 @@ size = Vector2(12, 12)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l4yx3")
-frame_progress = 0.487054
+frame_progress = 0.729754
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7o3xa")
