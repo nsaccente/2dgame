@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://doktf6favxb4u"]
+
+[ext_resource type="Texture2D" uid="uid://blcpj41h7117y" path="res://assets/weapons_and_projectiles/projectiles_animated.png" id="1_lg6tm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tibc1"]
+atlas = ExtResource("1_lg6tm")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4et5"]
+atlas = ExtResource("1_lg6tm")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp7hk"]
+atlas = ExtResource("1_lg6tm")
+region = Rect2(32, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0kgp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tibc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4et5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp7hk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbl3s"]
+radius = 8.0
+
+[node name="Lightning" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x0kgp")
+frame_progress = 0.256933
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_bbl3s")

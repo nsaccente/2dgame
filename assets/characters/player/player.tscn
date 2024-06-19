@@ -267,7 +267,7 @@ size = Vector2(9, 11)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2iso2")
-animation = &"idle_ right"
+animation = &"left_walk"
 autoplay = "idle_ right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
