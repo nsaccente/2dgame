@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pcapjs3j4mel"]
+
+[ext_resource type="PackedScene" uid="uid://7tpdae1molug" path="res://assets/characters/player/player.tscn" id="1_qgleq"]
+
+[node name="Dungeon1" type="Node2D"]
+position = Vector2(423, 166)
+scale = Vector2(5, 5)
+
+[node name="Player" parent="." instance=ExtResource("1_qgleq")]
+position = Vector2(47.8, 42.4)
+scale = Vector2(1.5, 1.5)
