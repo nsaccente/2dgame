@@ -1,23 +1,40 @@
 extends CharacterBody2D
 
-var SPEED = 10000  # speed in pixels/sec
+var MOVEMENT_SPEED: int = 300  # speed in pixels/sec
+
+const INPUT_LEFT: String = "left"
+const INPUT_RIGHT: String = "right"
+const INPUT_UP:	String = "up"
+const INPUT_DOWN: String = "down"
+
 @onready var state_machine = $AnimationTree["parameters/playback"]
-@onready var sprite_2d = $Sprite2D
+
+func run():
+	state_machine.travel("run_right")
 
 func _physics_process(delta):
-	var current = state_machine.get_current_node()
-	print(current)
-	var direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * SPEED * delta
+	var current_anim = state_machine.get_current_node()
+	#if current_anim in ["hurt", "die"]:
+		#return
+		
+	velocity = (
+		Input.get_vector(INPUT_LEFT, INPUT_RIGHT, INPUT_UP, INPUT_DOWN)
+		 * MOVEMENT_SPEED
+	)
 	
+	
+	#if Input.is_action_just_pressed("attack"):
+		#state_machine.travel(attacks.pick_random())
+		#return
+		
 	# True if the cursor is to the left of the player
-	var look_left = sprite_2d.get_local_mouse_position()[0] < 0
-	sprite_2d.flip_h = look_left
+	var look_left = $Sprite2D.get_local_mouse_position()[0] < 0
+	$Sprite2D.flip_h = look_left
 	
+	if velocity.x != 0:
+		$Sprite2D.scale.x = sign(velocity.x)
 	if velocity.length() > 0:
-		state_machine.travel("run")
+		run()
 	else:
-		state_machine.travel("idle")
-	
+		state_machine.travel("idle_right")
 	move_and_slide()
-#
