@@ -4,8 +4,7 @@ extends CharacterBody2D
 const BASE_MOVEMENT_SPEED: int = 300
 
 ## Set to number of sprite orientations; make sure to label your animations 
-## from 0 through (ANIMATION_DIRECTIONS-1), starting at 3:00
-## https://kidscancode.org/godot_recipes/4.x/2d/8_direction/
+## from 0 through (ANIMATION_DIRECTIONS-1), starting at 3 o'clock.
 const ANIMATION_DIRECTIONS: int = 2
 
 ## Input configuration, update values with InputMap action names
@@ -25,23 +24,28 @@ var movement_speed: int = BASE_MOVEMENT_SPEED  # speed in pixels/sec
 )
 @onready var sprite_2d: Sprite2D = $Sprite2D
 	
-func parse_direction(M: Vector2, num_directions=ANIMATION_DIRECTIONS) -> int:
+## Converts a vector into a `num_directions` slices, and returns the slice
+## number where the vector is in.
+## https://kidscancode.org/godot_recipes/4.x/2d/8_direction/
+func parse_direction(V: Vector2, num_directions=ANIMATION_DIRECTIONS) -> int:
 	var angle = (
 		snappedf(
-			M.angle(), 
+			V.angle(), 
 			PI/(num_directions/2),
 		) 
 		/ (PI/(num_directions/2))
 	)
 	return wrapi(int(angle), 0, num_directions)
-	
+
+## Handles idle animation
 func idle(
 	velocity: Vector2, 
 	mouse_position: Vector2, 
 	current_anim: StringName,
 ) -> void:
 	state_machine.travel("idle_" + str(parse_direction(mouse_position)))
-	
+
+## Handles run animation
 func run(
 	velocity: Vector2, 
 	mouse_position: Vector2, 
