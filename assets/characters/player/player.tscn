@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://7tpdae1molug"]
 
-[ext_resource type="Script" path="res://assets/characters/player/player.gd" id="1_60lih"]
 [ext_resource type="Texture2D" uid="uid://c63hcjgt14pob" path="res://assets/characters/player/elf.png" id="1_sjwxr"]
+[ext_resource type="Script" path="res://assets/characters/player/player.gd" id="1_y7ywc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_anjud"]
 size = Vector2(10, 13)
@@ -269,7 +269,8 @@ nodes/output/position = Vector2(260, 180)
 node_connections = [&"TimeScale", 0, &"StateMachine", &"output", 0, &"TimeScale"]
 
 [node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_60lih")
+z_index = 100
+script = ExtResource("1_y7ywc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_sjwxr")

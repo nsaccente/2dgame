@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://c08kduaxt18nb"]
+
+[ext_resource type="Texture2D" uid="uid://6ld2fsjvb0ew" path="res://assets/props/animated_props.png" id="1_31dcp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unk8m"]
+atlas = ExtResource("1_31dcp")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1ubn"]
+atlas = ExtResource("1_31dcp")
+region = Rect2(80, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40cgi"]
+atlas = ExtResource("1_31dcp")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73lro"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unk8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1ubn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40cgi")
+}],
+"loop": true,
+"name": &"Lever",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb5n0"]
+size = Vector2(14, 7)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_73lro")
+animation = &"Lever"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2.5)
+shape = SubResource("RectangleShape2D_jb5n0")

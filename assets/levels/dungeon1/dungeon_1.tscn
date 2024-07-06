@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://pcapjs3j4mel"]
+[gd_scene load_steps=2 format=3 uid="uid://boxo1gw7sy7s8"]
 
-[ext_resource type="PackedScene" uid="uid://7tpdae1molug" path="res://assets/characters/player/player.tscn" id="1_qgleq"]
+[ext_resource type="PackedScene" uid="uid://dfnyaalgrwxx5" path="res://assets/characters/player/player.tscn" id="1_qgleq"]
 
 [sub_resource type="CurveTexture" id="CurveTexture_a182m"]
 
